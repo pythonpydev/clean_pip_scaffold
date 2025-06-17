@@ -1,4 +1,5 @@
 # clean_pip_scaffold
+
 Script that uses pip to setup a new Python project scaffold with templates separated out for source code.
 
 Here is a complete `README.md` file for your `clean_scaffold_pip.py` script:
@@ -74,6 +75,7 @@ This generates a new project in a folder called `<project_name>`.
   ```bash
   gh auth login
   ```
+
 * Internet access to install dependencies
 
 ---
@@ -134,4 +136,3 @@ git push -u origin main
 This script is provided under the MIT License. Customize freely for your workflow.
 
 ---
-
