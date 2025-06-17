@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x' # Use a flexible version, e.g., '3.10', '3.11', '3.12'
+      - name: Create and activate virtual environment
+        run: |
+          python -m venv .venv
+          source .venv/bin/activate # Standard for bash environments like ubuntu-latest
+      - name: Install dependencies
+        run: |
+          source .venv/bin/activate
+          pip install -r requirements.txt
+      - name: Run tests
+        run: |
+          source .venv/bin/activate
+          pytest
+      - name: Lint with Black
+        run: |
+          source .venv/bin/activate
+          black --check src tests
+      - name: Check imports with isort
+        run: |
+          source .venv/bin/activate
+          isort --check-only src tests
+      - name: Build documentation
+        run: |
+          source .venv/bin/activate
+          sphinx-build -b html docs _build

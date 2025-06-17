@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+.venv/
+.env
+.python-version
+_build/
+build/
+dist/
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.DS_Store
+Thumbs.db

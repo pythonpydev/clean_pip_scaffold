@@ -1,0 +1,41 @@
+[project]
+name = "{project_name_normalized}"
+version = "0.1.0"
+description = "A new Python project scaffolded with pip/venv"
+readme = "README.md"
+requires-python = ">=3.8"
+authors = [
+    {{ name = "Your Name", email = "you@example.com" }}
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Build Tools",
+]
+keywords = ["project", "scaffold", "pip", "venv", "python"]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "black",
+    "isort",
+    "sphinx",
+    "sphinx-rtd-theme"
+]
+
+[project.scripts]
+{project_name_normalized} = "{project_name}.main:main" # Example entry point
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.black]
+line-length = 88
+target-version = ['py38', 'py39', 'py310', 'py311', 'py312']
+
+[tool.isort]
+profile = "black"

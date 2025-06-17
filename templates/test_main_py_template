@@ -1,0 +1,14 @@
+import sys
+from pathlib import Path
+
+# Add the src directory to the Python path for testing
+# This assumes the test is run from the project root.
+sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
+
+from {project_name}.main import main
+
+def test_main_runs(capsys):
+    # Capture stdout to test the print statement
+    main()
+    captured = capsys.readouterr()
+    assert captured.out.strip() == "Hello from {project_name}!"
